@@ -1,6 +1,6 @@
 # 🤝 Contributing — Team Guide
 
-This guide is for the 3 team members working on this project together.
+This guide is for the team members working on this project together.
 
 ---
 
