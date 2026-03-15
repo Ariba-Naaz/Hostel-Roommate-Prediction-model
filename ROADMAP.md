@@ -38,30 +38,39 @@
 
 ---
 
-## 🔲 Phase 4 — Baseline Model (Cosine Similarity)
-
-- [ ] Build pairwise cosine similarity computation across all student vectors
-- [ ] Implement dealbreaker weighting — increase weight for flagged dimensions
-- [ ] Generate ranked compatibility list (top 3 matches) per token
-- [ ] Evaluate output quality manually — do matches make intuitive sense?
-
----
-
-## 🔲 Phase 5 — KNN Comparison
-
-- [ ] Implement KNN-based matching
-- [ ] Compare KNN ranked output with cosine similarity output
-- [ ] Tune K and distance metric
-- [ ] Document differences and choose best approach
+## 🔲 Phase 4 — K-Means Clustering (Pre-Processing Step)
+ 
+- [ ] Apply K-Means clustering on the full encoded feature matrix
+- [ ] Experiment with different values of K — evaluate cluster quality (elbow method / silhouette score)
+- [ ] Assign each student token to a cluster
+- [ ] Inspect clusters manually — do groupings make intuitive sense? (e.g. night owls together, clean + quiet together)
+- [ ] Finalise K and cluster assignments before moving to matching
+ 
+> **Why cluster first?** Matching every student against every other student is computationally expensive and produces poor matches across very different profiles. K-Means groups similar students first — matching then happens **only within each cluster**, producing better and faster results.
 
 ---
 
-## 🔲 Phase 6 — Clustering Exploration
+## 🔲 Phase 5 — Cosine Similarity Within Clusters
+ 
+- [ ] For each cluster, compute pairwise cosine similarity between all student vectors inside that cluster
+- [ ] Apply **dealbreaker weighting** — for each student pair, increase the weight of dimensions flagged as dealbreakers by either student
+  - Preference 1 dealbreaker → highest weight multiplier (e.g. 3×)
+  - Preference 2 → medium weight (e.g. 2×)
+  - Preference 3 → lower weight (e.g. 1.5×)
+  - If either student in a pair has flagged a dimension, apply the higher of the two weights
+- [ ] Also assugn weughts to each question according to their importance. eg. smoking habits should have more weight over music preference 
+- [ ] Compute final weighted compatibility score for each pair
+- [ ] Generate ranked list — **top 3 most compatible matches** per student token
+- [ ] Evaluate output quality manually — do top 3 matches make intuitive sense?
+---
 
-- [ ] Apply K-Means or Hierarchical Clustering on feature matrix
-- [ ] Evaluate if natural groupings exist in the data
-- [ ] Test: does matching within clusters improve output quality?
-- [ ] Decision: use clustering as pre-processing step or skip
+## 🔲 Phase 6 — Evaluation & Refinement
+ 
+- [ ] Review match quality across different clusters
+- [ ] Check edge cases — what happens when a cluster has very few students?
+- [ ] Tune dealbreaker weight multipliers if output quality is poor
+- [ ] Document final chosen K value and weight multipliers with justification
+- [ ] Implement several methods to test the compatibility of prediction models used
 
 ---
 
@@ -81,6 +90,3 @@
 - **Version 2** — optional preference fields (hobbies, academic stream) as secondary tie-breakers
 - **Ensemble Research** — deeper study of Random Forest for semi-supervised matching once labelled pairs are available
 
----
-
-*Last updated: March 2026*
