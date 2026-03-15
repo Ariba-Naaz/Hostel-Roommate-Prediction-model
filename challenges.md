@@ -54,13 +54,11 @@ A single question is often not sufficient for complex, nuanced behaviours. Think
 **Status:** ✅ Resolved
 
 ### Problem
-The initial food preference question did not adequately capture the spectrum of Jain dietary practices. Including the Jain-specific question for all respondents created unnecessary complexity and potential confusion for non-Jain respondents.
+The initial food preference question did not adequately capture the spectrum of Jain dietary practices. 
 
 ### Solution
-Added a **conditional follow-up question** shown only to respondents who identified as Jain, asking specifically about strictness of food practices in shared spaces. This prevents the question from being shown to or biasing non-Jain respondents, while still capturing the nuanced data needed for accurate matching.
+Added a **conditional follow-up question**, asking specifically about strictness of food practices in shared spaces. This prevents the question from being shown to or biasing non-Jain respondents, while still capturing the nuanced data needed for accurate matching.
 
-### Lesson Learned
-Conditional logic in forms is essential when certain dimensions only apply to a subset of respondents. Don't force all users through questions that aren't relevant to them.
 
 ---
 
@@ -96,7 +94,8 @@ Selecting the right model is difficult without knowing the final dataset size an
 - The team lacks sufficient research depth on ensemble methods for this type of matching problem at this stage
 
 ### Current Approach
-- Start with **Cosine Similarity** as a baseline — requires no training data, interpretable output
+- Explore **clustering** once initial responses are in to see if natural groupings exis.
+- Use **Cosine Similarity** as a baseline — requires no training data, interpretable output
 - Layer **KNN** for ranked matching and compare
 - Explore **clustering** once initial responses are in to see if natural groupings exist
 
