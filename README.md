@@ -140,7 +140,6 @@ Each submission is assigned a unique random token (e.g. `RT-4829-XK`) before pro
 | **K-Means / Hierarchical Clustering** | Group similar profiles into clusters | Good for finding natural groupings | Doesn't directly produce ranked pairs |
 | **Random Forest** | Ensemble classification/regression | Can learn complex feature interactions | Requires labelled training data — not available yet |
 
-> 🧠 **Current plan:** Start with Cosine Similarity as a baseline (no training required), then layer KNN for ranked matching. Clustering may be used to segment users before matching within clusters.
 
 ### Output
 For each student token, the model returns the **top 3 most compatible matches**, ranked by weighted compatibility score. Dealbreaker dimensions flagged by each respondent receive higher weight in the scoring.
