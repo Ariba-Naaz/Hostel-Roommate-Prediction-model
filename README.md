@@ -9,9 +9,9 @@ This is a project based on predicting compatibility of hostel roommates using ma
 
 | Name | Role |
 |---|---|
+| Ariba Naaz | Co-developer |
 | Kirti Nagori | Co-developer |
-| Sanvitha Reddy | Co-developer |
-| *(Your name)* | Co-developer |
+|Sanvitha Reddy | Co-developer |
 
 ---
 
@@ -72,14 +72,14 @@ roommate-compatibility/
 ├── README.md
 ├── ROADMAP.md
 ├── requirements.txt
-└── LICENSE
+
 ```
 
 ---
 
 ## 📋 Survey Design
 
-Data is collected via a **Google Form** estimated at 8–10 minutes. The form is structured around **7 behavioural dimensions** — all questions are framed around real scenarios and actual habits, not self-reported ideals.
+Data is collected via a **Google Form** estimated at 3-5 minutes. The form is structured around **7 behavioural dimensions** — all questions are framed around real scenarios and actual habits, not self-reported ideals.
 
 > 🔑 Core design principle: *"What you actually do" vs "what you think is ideal"* — this distinction drove every form design decision.
 
@@ -159,7 +159,7 @@ For each student token, the model returns the **top 3 most compatible matches**,
 
 ### 3. Jain Food Complexity
 **Problem:** Initial food preference question didn't capture the spectrum of Jain dietary practices and was biasing non-Jain respondents.  
-**Solution:** Added a conditional follow-up question shown only to Jain respondents about shared space food strictness.
+**Solution:** Added a conditional follow-up question comsidering respondents about shared space food strictness.
 
 ### 4. Form Version Control Gap
 **Problem:** Several form fields were removed during refinement but the changes were not documented at the time.  
@@ -215,7 +215,6 @@ jupyter notebook notebooks/01_data_cleaning.ipynb
 - Tokenisation is applied before any data processing or sharing
 - Model output uses only anonymous tokens — no names in results
 - Data is used solely for roommate matching purposes
-- Output should only be used by authorised hostel administration staff
 
 ---
 
@@ -223,9 +222,6 @@ jupyter notebook notebooks/01_data_cleaning.ipynb
 
 See [`docs/research.md`](docs/research.md) for full references.
 
----
-
-## 📝 License
 
 This project is open for educational and non-commercial use. See [LICENSE](LICENSE) for details.
 
