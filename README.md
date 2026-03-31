@@ -23,25 +23,14 @@ This project builds a data-driven solution: a machine learning model trained on 
 
 | Property | Details |
 |---|---|
-| **Status** | 🔄 Data Collection & Preprocessing Phase |
+| **Status** | UI/Ux development |
 | **Output** | Top 3 ranked compatibility matches per student |
 | **Data Source** | Google Form — behavioural survey |
-| **Tools** | Python, Jupyter Notebook, Scikit-learn, Pandas, NumPy |
-| **Models Planned** | Cosine Similarity, KNN, K-Means Clustering |
+| **Tools** | Python, Jupyter Notebook, Scikit-learn, Pandas, NumPy, Vs code |
+| **Models Planned** | Cosine Similarity, KNN, K-Means Clustering, PCA |
 
 ---
 
-## ⚠️ Scope & Limitations
-
-This is a **student learning project** in active development. Important caveats:
-
-- Dataset is still being collected — model has not yet been trained
-- Model selection is pending final data volume and distribution analysis
-- Labelled training data (known compatible/incompatible pairs) is not available yet, limiting supervised approaches
-- Compatibility is multi-dimensional — no model perfectly predicts real-world roommate success
-- The output is a ranked suggestion list, not a guarantee — human judgment should still play a role
-
----
 
 ## 🗂️ Repository Structure
 
