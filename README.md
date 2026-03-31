@@ -38,19 +38,12 @@ This project builds a data-driven solution: a machine learning model trained on 
 roommate-compatibility/
 │
 ├── 📁 data/
-│   ├── raw/                        # Raw Google Form responses (anonymised)
-│   └── processed/                  # Encoded and scaled dataset
+│   ├── raw/                        # Raw Google Form responses (anonymised)                 
 │
-├── 📁 notebooks/
-│   ├── 01_data_cleaning.ipynb      # Cleaning, tokenisation, missing values
-│   ├── 02_feature_engineering.ipynb # Encoding and scaling
-│   └── 03_model_experiments.ipynb  # Model training and evaluation
-│
-├── 📁 src/
-│   ├── tokenise.py                 # Anonymisation — assign random tokens
-│   ├── encode.py                   # Encoding pipeline
-│   ├── model.py                    # Compatibility scoring logic
-│   └── match.py                    # Ranked output — top 3 matches
+├── 📁 Code/
+│   ├── 01_Eda.py                 # Cleaning, dividing data based on gender analysing raw data to find weigtage of each parameter
+│   ├── 02_preprocessing.py       # Encoding and scaling, Custom Compatibility Matrices, pca and KMeans clustering
+│   └── 03_model_experiments.py   # Model training and evaluation
 │
 ├── 📁 docs/
 │   ├── research.md                 # References and research notes
