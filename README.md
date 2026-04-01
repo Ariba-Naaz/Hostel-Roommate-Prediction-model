@@ -220,11 +220,3 @@ python Code/02_preprocessing.py
 > ⚠️ Raw data is not included in this repo to protect respondent privacy.
 
 ---
-
-## 📚 References
-
-See [`docs/research.md`](docs/research.md) for full references.
-
----
-
-*Built on behaviour, not assumptions.*
