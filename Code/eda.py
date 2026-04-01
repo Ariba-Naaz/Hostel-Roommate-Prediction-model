@@ -14,7 +14,7 @@ from scipy.stats import chi2
 # %matplotlib inline
 
 # ── Config ───────────────────────────────────────────────────────────
-DATA_PATH  = r"C:\Users\HP\Documents\Hostel_Roommate_Prediction_model_VS_Code\Hostel-Roommate-Prediction-model\Raw_data.csv"
+DATA_PATH  = r"C:\Users\HP\Documents\Hostel_Roommate_Prediction_model_VS_Code\Hostel-Roommate-Prediction-model\data\Raw_data.csv"
 OUTPUT_DIR = "eda_figures"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 

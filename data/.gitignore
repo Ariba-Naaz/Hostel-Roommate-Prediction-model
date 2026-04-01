@@ -4,14 +4,14 @@ __pycache__/
 *.pyo
 *.pyd
 
-# Virtual environment
+# Virtual Environment
 venv/
 .env/
 
-# Jupyter Notebook
+# Jupyter
 .ipynb_checkpoints/
 
-# Data files (optional - remove if you WANT to track CSVs)
+# Data files (remove this line if you WANT to upload CSV)
 *.csv
 
 # Logs
@@ -24,9 +24,11 @@ Thumbs.db
 # VS Code
 .vscode/
 
-# Matplotlib / EDA outputs
+# EDA outputs
 eda_figures/
 eda_plots/
+Code/eda_figures/
+Code/eda_plots/
 
 # Model files
 *.pkl
@@ -34,4 +36,3 @@ eda_plots/
 
 # Temporary files
 *.tmp
-
