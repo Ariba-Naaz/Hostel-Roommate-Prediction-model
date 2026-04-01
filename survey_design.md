@@ -1,10 +1,9 @@
 # 📋 Survey Design — Final Form
 
 Full documentation of the actual Google Form used for data collection, including all questions, answer options, and design rationale.
-
-**Institution:** Malaviya National Institute of Technology, Jaipur  
+ 
 **Form Link:** [Live Form](https://docs.google.com/forms/d/e/1FAIpQLSc0KeZjZ_6HPUYbRpaoyT4PZrDWOAbVfOtBdgNBHtMk8FZZCQ/viewform)  
-**Estimated time:** 2–5 minutes  
+
 
 ---
 
@@ -12,9 +11,7 @@ Full documentation of the actual Google Form used for data collection, including
 
 > *"Answer based on what you ACTUALLY do, not what you think is ideal."*
 
-This instruction is shown at the top of the form. Every question is designed to capture **real behaviour**, not socially desirable answers. The form avoids hypothetical preference questions and instead uses scenario-based and behavioural anchor questions throughout.
-
-All responses are anonymous. No personally identifiable information is collected beyond optional gender.
+Every question is designed to capture **real behaviour**, not socially desirable answers. The form avoids hypothetical preference questions and instead uses scenario-based and behavioural anchor questions throughout.
 
 ---
 
@@ -27,14 +24,12 @@ All responses are anonymous. No personally identifiable information is collected
 **Gender** *(optional)*
 - Female / Male / Other / Do not wish to specify
 
-> Not used as a matching feature. Collected for dataset analysis only.
 
 ---
 
 ### 😴 Sleep Schedule
 
 **Q1. In the last month, on most days, you fell asleep around…**
-*(Think of a typical weekday, not exceptions)*
 - Before 10 PM
 - 10 PM – 11:30 PM
 - 11:30 PM – 1 AM
@@ -42,7 +37,6 @@ All responses are anonymous. No personally identifiable information is collected
 - After 3 AM
 - Varies wildly day to day
 
-> "Varies wildly" is a non-ordinal outlier — requires special handling during encoding.
 
 **Q2. You typically wake up (without being forced to)…**
 - Before 6 AM
@@ -190,7 +184,6 @@ All responses are anonymous. No personally identifiable information is collected
 - Loud Noise / Music
 - Lack of privacy
 - Roommate avoids all conflict
-- Temperature
 - Frequent guests at night
 
 > Top 3 ranked dealbreakers are used as **weighting flags** in the compatibility score. Mismatches on a respondent's flagged dimensions are penalised more heavily.
@@ -213,8 +206,6 @@ All responses are anonymous. No personally identifiable information is collected
 | Scale questions | 2 (Q7, Q9) |
 | Scenario-based questions | 2 (Q3, Q13) |
 | Multi-select/ranked | 1 (Q17 dealbreakers) |
-| Estimated completion time | 2–5 minutes |
-| Anonymity | Full — no name, email, or ID collected |
 
 ---
 
@@ -228,4 +219,3 @@ All responses are anonymous. No personally identifiable information is collected
 | Peer-pressure behaviour capture | Q12 ("in presence of peers" option) |
 | Smell sensitivity separate from food preference | Q10 + Q11 as independent features |
 | No option framed as "correct" | All questions |
-| Anonymity stated upfront | Form header |
