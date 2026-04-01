@@ -49,7 +49,6 @@ roommate-compatibility/
 │   └── 03_model_experiments.py     # (In progress) Matching loop, top-3 output per student
 │
 ├── 📁 docs/
-│   ├── research.md                 # References and research notes
 │   ├── challenges.md               # Problems encountered & solutions
 │   ├── encoding_strategy.md        # Full encoding decisions per feature
 │   └── survey_design.md            # Form design rationale & anti-bias techniques
