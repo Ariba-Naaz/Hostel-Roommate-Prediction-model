@@ -1,4 +1,37 @@
-venv/
+# Python
 __pycache__/
 *.pyc
-.env
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Data files (optional - remove if you WANT to track CSVs)
+*.csv
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Matplotlib / EDA outputs
+eda_figures/
+eda_plots/
+
+# Model files
+*.pkl
+*.joblib
+
+# Temporary files
+*.tmp
+

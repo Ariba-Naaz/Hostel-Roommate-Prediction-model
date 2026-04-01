@@ -23,7 +23,7 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 
 # ── Config ───────────────────────────────────────────────────────────
-DATA_PATH = r"C:\Users\HP\Documents\Hostel_Roommate_Prediction_model_VS_Code\Hostel-Roommate-Prediction-model\Final Hostel Roommate Compatibility Profile (Responses) - Form Responses 1 (2).csv"
+DATA_PATH = r"C:\Users\HP\Documents\Hostel_Roommate_Prediction_model_VS_Code\Hostel-Roommate-Prediction-model\Raw_data.csv"
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # STAGE 1 — Load & Clean
