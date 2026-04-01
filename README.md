@@ -168,7 +168,7 @@ Students flagged by Z-score or Mahalanobis distance are matched last or recommen
 **Problem:** Students who smoke occasionally in social situations self-identify as non-smokers. A roommate who smokes outside but carries the smell indoors causes friction even if they technically "don't smoke in the room."  
 **Solution:** Added two independent questions — one for peer-pressure/situational smoking, one for residual smell sensitivity.
 
-> 📄 Full challenge log: [`docs/challenges.md`](docs/challenges.md)
+> 📄 Full challenge log: [`docs/challenges.md`](challenges.md)
 
 ---
 
