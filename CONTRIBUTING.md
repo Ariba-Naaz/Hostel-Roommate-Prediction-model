@@ -68,7 +68,7 @@ git push origin your-name/what-youre-doing
 | Model experiments (`03_model_experiments.py`) | 🔄 In progress | *(assign)* |
 | Tokenisation | 🔲 Planned | *(assign)* |
 | Evaluation & tuning | 🔲 Planned | *(assign)* |
-| Documentation | 🔄 Ongoing | *(assign)* |
+| Documentation | 🔄 Ongoing | Ariba |
 
 ---
 
