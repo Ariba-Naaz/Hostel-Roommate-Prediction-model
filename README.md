@@ -1,7 +1,9 @@
-# Hostel-Roommate-Prediction-model
-This is a project based on predicting compatibility of hostel roommates using machine learning algorithms.# 🏠 Hostel Roommate Compatibility Model
+
+# 🏠 Hostel Roommate Compatibility Model
 
 > A machine learning project that takes behavioural and lifestyle survey responses from hostel students and produces a **ranked list of the 3 most compatible roommate matches** for each individual — driven by data, not guesswork.
+
+**Institution:** Malaviya National Institute of Technology, Jaipur
 
 ---
 
@@ -11,7 +13,7 @@ This is a project based on predicting compatibility of hostel roommates using ma
 |---|---|
 | Ariba Naaz | Co-developer |
 | Kirti Nagori | Co-developer |
-|Sanvitha Reddy | Co-developer |
+| Sanvitha Reddy | Co-developer |
 
 ---
 
@@ -19,18 +21,17 @@ This is a project based on predicting compatibility of hostel roommates using ma
 
 Most hostel institutions assign roommates randomly or allow self-selection — both approaches fail to account for behavioural compatibility in any structured way. Incompatibility in sleep schedules, cleanliness habits, noise sensitivity, and lifestyle choices creates real conflicts that affect academic performance and mental wellbeing.
 
-This project builds a data-driven solution: a machine learning model trained on **behavioural survey data** (not self-reported ideals) that outputs the **top 3 most compatible roommate matches** for each student, ranked by a weighted compatibility score.
+This project builds a data-driven solution: a machine learning pipeline trained on **behavioural survey data** (not self-reported ideals) that outputs the **top 3 most compatible roommate matches** for each student, ranked by a weighted compatibility score.
 
 | Property | Details |
 |---|---|
-| **Status** | UI/Ux development |
+| **Status** | Model experiments in progress |
 | **Output** | Top 3 ranked compatibility matches per student |
 | **Data Source** | Google Form — behavioural survey |
-| **Tools** | Python, Jupyter Notebook, Scikit-learn, Pandas, NumPy, Vs code |
-| **Models Planned** | Cosine Similarity, KNN, K-Means Clustering, PCA |
+| **Tools** | Python, Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn |
+| **Techniques Used** | Ordinal + One-Hot Encoding, MinMax Scaling, Custom Compatibility Matrices, PCA, KMeans Clustering |
 
 ---
-
 
 ## 🗂️ Repository Structure
 
@@ -38,12 +39,14 @@ This project builds a data-driven solution: a machine learning model trained on 
 roommate-compatibility/
 │
 ├── 📁 data/
-│   ├── raw/                        # Raw Google Form responses (anonymised)                 
+│   └── raw/                        # Raw Google Form responses (anonymised)
 │
 ├── 📁 Code/
-│   ├── 01_Eda.py                 # Cleaning, dividing data based on gender analysing raw data to find weigtage of each parameter
-│   ├── 02_preprocessing.py       # Encoding and scaling, Custom Compatibility Matrices, pca and KMeans clustering
-│   └── 03_model_experiments.py   # Model training and evaluation
+│   ├── 01_eda.py                   # EDA — distributions, gender split, dealbreaker analysis,
+│   │                               # cross-tabs, correlation heatmap, outlier detection
+│   ├── 02_preprocessing.py         # Encoding, scaling, custom compatibility matrices,
+│   │                               # compatibility scoring function, PCA, KMeans clustering
+│   └── 03_model_experiments.py     # (In progress) Matching loop, top-3 output per student
 │
 ├── 📁 docs/
 │   ├── research.md                 # References and research notes
@@ -53,33 +56,34 @@ roommate-compatibility/
 │
 ├── README.md
 ├── ROADMAP.md
-├── requirements.txt
-
+├── CONTRIBUTING.md
+└── requirements.txt
 ```
 
 ---
 
 ## 📋 Survey Design
 
-Data is collected via a **Google Form** estimated at 3-5 minutes. The form is structured around **7 behavioural dimensions** — all questions are framed around real scenarios and actual habits, not self-reported ideals.
+Data is collected via a **Google Form** estimated at 2–5 minutes. The form is structured around **8 behavioural dimensions** — all questions are framed around real scenarios and actual habits, not self-reported ideals.
 
-> 🔑 Core design principle: *"What you actually do" vs "what you think is ideal"* — this distinction drove every form design decision.
+> 🔑 Core design principle: *"What you actually do"* vs *"what you think is ideal"* — this distinction drove every form design decision.
 
 ### Survey Dimensions
 
 | Dimension | What It Captures |
 |---|---|
-| **A. Sleep Schedule** | Sleep/wake times, late return behaviour, alarm sensitivity |
-| **B. Cleanliness & Hygiene** | Tidying frequency, clutter tolerance, shared space habits |
+| **A. Sleep Schedule** | Sleep/wake times, late return behaviour |
+| **B. Cleanliness & Hygiene** | Tidying frequency, clutter tolerance |
 | **C. Social Energy & Guests** | Guest frequency, visitor departure times, conversation preference |
-| **D. Study Habits & Noise** | Study environment needs, noise and audio sensitivity |
-| **E. Food, Smoking & Alcohol** | Dietary preferences, smoking habits, alcohol tolerance |
-| **F. Conflict Handling** | Response to friction — scenario-based, not hypothetical |
-| **G. Sharing & Boundaries** | Item sharing comfort, personal space requirements, dealbreakers |
-| **H. Environment** | Temperature, lighting, top dealbreaker flags (used for weighting) |
+| **D. Study Habits & Noise** | Study environment needs, music/audio sensitivity |
+| **E. Food, Smoking & Alcohol** | Dietary preferences, smoking habits |
+| **F. Conflict Handling** | Response to friction — scenario-based |
+| **G. Sharing & Boundaries** | Item sharing comfort, personal space |
+| **H. Environment & Dealbreakers** | Temperature, lighting, top 3 ranked dealbreaker flags |
 
 📎 [View the live Google Form](https://docs.google.com/forms/d/e/1FAIpQLSc0KeZjZ_6HPUYbRpaoyT4PZrDWOAbVfOtBdgNBHtMk8FZZCQ/viewform)
 
+---
 ### Anti-Bias Design Techniques
 
 A critical design principle was eliminating **self-reporting bias**:
@@ -89,31 +93,11 @@ A critical design principle was eliminating **self-reporting bias**:
 - **Dual smoking capture** — one question for self-identified smokers, a separate one for situational/peer-pressure smokers
 - **Residual sensitivity capture** — a question about smoke smell on clothes, not just in-room smoking
 - **Conditional Jain food question** — only shown to Jain respondents, preventing bias for others
-
----
-
-## ⚙️ Feature Engineering
-
-### Encoding Strategy
-
-| Encoding Method | When Used | Examples |
-|---|---|---|
-| **Label Encoding** | Ordinal data with natural order | Sleep time, tidying frequency, smell sensitivity |
-| **One-Hot Encoding** | Nominal data with no natural order | Late return behaviour, study location, ideal evening |
-| **Min-Max Scaling** | Numeric scale responses (1–5) | Conversation level, noise sensitivity, personal space |
-| **Binary (0/1)** | Yes/No questions | Peer-pressure smoking |
-| **Multi-Hot / Binary Flags** | Multi-select questions | Off-limits items, dealbreaker flags |
-
-### Anonymisation — Tokenisation
-Each submission is assigned a unique random token (e.g. `RT-4829-XK`) before processing. No personally identifiable information is collected or stored in the model pipeline. Token-to-response mapping is stored separately and never exposed in outputs.
-
-> ⚠️ Status: Tokenisation is planned — not yet implemented.
-
 ---
 
 ## 🤖 Model Selection
 
-### Approaches Under Consideration
+### Approaches 
 
 | Model | Approach | Strength | Limitation |
 |---|---|---|---|
@@ -123,30 +107,77 @@ Each submission is assigned a unique random token (e.g. `RT-4829-XK`) before pro
 | **Random Forest** | Ensemble classification/regression | Can learn complex feature interactions | Requires labelled training data — not available yet |
 
 
-### Output
-For each student token, the model returns the **top 3 most compatible matches**, ranked by weighted compatibility score. Dealbreaker dimensions flagged by each respondent receive higher weight in the scoring.
+## ⚙️ Pipeline Overview
 
+### Stage 1 — EDA (`01_eda.py`)
+
+Nine analysis cells run independently on the raw CSV:
+
+- **Sleep & wake distributions** — identifies night owl concentration
+- **Dealbreaker frequency analysis** — across all 3 priority slots, and split by gender
+- **Food preference breakdown** — including non-veg sensitivity among veg students
+- **Cross-tab analysis** — sleep vs evening preference, cleanliness vs conflict style, study env vs music bother, evening pref vs guest timing (full dataset + gender split)
+- **Correlation heatmap** — Pearson r across all ordinal-encoded features
+- **Outlier detection** — Z-score flagging (≥4 extreme columns) + Mahalanobis distance (χ² p=0.01)
+- **Final summary** — matching implications derived from EDA findings
+
+### Stage 2 — Preprocessing (`02_preprocessing.py`)
+
+Eight pipeline stages:
+
+1. **Load & clean** — column renaming, Jain spelling normalisation, `music_bother` string parsing
+2. **Missing value handling** — mode fill (categorical), median fill (numeric), `gender_imputed` flag
+3. **Encoding** — ordinal encoding (12 columns), one-hot encoding (`food_pref`, `study_env`, `gender`), dealbreaker binary flags (7 columns)
+4. **Normalisation** — MinMaxScaler on ordinal + numeric columns only; OHE and binary columns excluded
+5. **Custom compatibility matrices** — `FOOD_MATRIX` and `SMOKE_MATRIX` replace ordinal distance for food and smoking, capturing qualitative incompatibility that numeric distance misses
+6. **Compatibility scoring** — `total_compatibility(idx_a, idx_b)` returns a score in [0.0, 1.0] with hard filters (smoking incompatibility → 0.0, food score < 0.2 → 0.0) and gender-split weight sets derived from EDA
+7. **PCA** — separate per gender, retaining 90% of variance; used for clustering only, not scoring
+8. **KMeans clustering** — separate per gender, elbow + silhouette analysis, currently k=4 for both
+
+### Stage 3 — Model Experiments (`03_model_experiments.py`)
+*(In progress)*
+
+- Run `total_compatibility()` for all pairs within each cluster
+- Surface top 3 matches per student token
+- Add confidence score per match
+
+---
+
+## 🤖 Key Design Decisions
+
+### Custom Compatibility Matrices
+Food and smoking use lookup matrices instead of ordinal distance. A Jain student paired with a non-vegetarian receives a score of 0.1, not a scaled numeric distance — because the incompatibility is qualitative, not proportional.
+
+### Gender-Split Weights
+Two weight sets (`WEIGHTS_FEMALE`, `WEIGHTS_MALE`) are derived from EDA findings. Female weights are higher on cleanliness and conflict style; male weights are higher on guest timing and evening preference. Both sets are validated to sum to 1.0.
+
+### Hard Filters Before Scoring
+Smoking incompatibility (score = 0.0) and severe food mismatch (score < 0.2) short-circuit the scoring function entirely. No weighted average can rescue a fundamentally incompatible pair on these axes.
+
+### Outlier Handling
+Students flagged by Z-score or Mahalanobis distance are matched last or recommended for single-room allocation rather than being forced into a cluster.
 ---
 
 ## 🧩 Challenges & Key Decisions
 
-### 1. Self-Reporting Bias in the Form
+### Self-Reporting Bias in the Form
 **Problem:** Original questions like *"Would you be quiet when coming in late?"* almost universally got *"Yes"* — socially desirable, not behavioural reality.  
 **Solution:** Redesigned entire form to use scenario-based questions with realistic options that don't have an obvious "correct" answer.
 
-### 2. Smoking — Single Question Wasn't Enough
+### Smoking — Single Question Wasn't Enough
 **Problem:** Students who smoke occasionally in social situations self-identify as non-smokers. A roommate who smokes outside but carries the smell indoors causes friction even if they technically "don't smoke in the room."  
 **Solution:** Added two independent questions — one for peer-pressure/situational smoking, one for residual smell sensitivity.
 
-### 3. Jain Food Complexity
-**Problem:** Initial food preference question didn't capture the spectrum of Jain dietary practices and was biasing non-Jain respondents.  
-**Solution:** Added a conditional follow-up question comsidering respondents about shared space food strictness.
-
-### 4. Form Version Control Gap
-**Problem:** Several form fields were removed during refinement but the changes were not documented at the time.  
-**Lesson:** Future form changes will be version-controlled with a change log documenting what was removed and why.
-
 > 📄 Full challenge log: [`docs/challenges.md`](docs/challenges.md)
+
+---
+
+## 🔒 Ethics & Privacy
+
+- No personally identifiable information is collected in the form
+- Tokenisation planned before any data processing or external sharing
+- Model output uses only anonymous indices — no names in results
+- Data is used solely for roommate matching purposes
 
 ---
 
@@ -156,55 +187,43 @@ See [`ROADMAP.md`](ROADMAP.md) for full development plan.
 
 **Immediate next steps:**
 - [ ] Complete data collection via Google Form
-- [ ] Implement tokenisation before any analysis
 - [ ] Data cleaning — missing values, response validation
-- [ ] Apply encoding strategy (Section 3.2)
+- [ ] Apply encoding strategy
+- [ ] Implement dealbreaker weighting(PCA and custom matrix)
 - [ ] Apply Min-Max scaling
+- [ ] Implement K Means for clustering.
 - [ ] Build baseline Cosine Similarity model
 - [ ] Compare with KNN — evaluate ranked output quality
-- [ ] Implement dealbreaker weighting
+
 
 **Longer term:**
 - [ ] Simple admin interface for hostel staff
 - [ ] Validate output against real-world satisfaction (feedback loop)
 - [ ] Add confidence score per match
-- [ ] Version 2: optional preference fields as tie-breakers
-
----
-
 ## 🛠️ Setup & Usage
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR-USERNAME/roommate-compatibility.git
-cd roommate-compatibility
+git clone https://github.com/Ariba-Naaz/Hostel-Roommate-Prediction-model.git
+cd Hostel-Roommate-Prediction-model
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Run notebooks in order
-jupyter notebook notebooks/01_data_cleaning.ipynb
+# Run in order
+python Code/01_eda.py
+python Code/02_preprocessing.py
+# 03_model_experiments.py — in progress
 ```
 
+> ⚠️ Update `DATA_PATH` in both scripts to point to your local CSV before running.  
 > ⚠️ Raw data is not included in this repo to protect respondent privacy.
-
----
-
-## 🔒 Ethics & Privacy
-
-- No personally identifiable information is collected in the form
-- Tokenisation is applied before any data processing or sharing
-- Model output uses only anonymous tokens — no names in results
-- Data is used solely for roommate matching purposes
 
 ---
 
 ## 📚 References
 
 See [`docs/research.md`](docs/research.md) for full references.
-
-
-This project is open for educational and non-commercial use. See [LICENSE](LICENSE) for details.
 
 ---
 
