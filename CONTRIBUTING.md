@@ -15,6 +15,13 @@ cd Hostel-Roommate-Prediction-model
 ### 2. Install dependencies
 ```bash
 pip install -r requirements.txt
+
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+scipy
 ```
 
 ### 3. Set your data path
