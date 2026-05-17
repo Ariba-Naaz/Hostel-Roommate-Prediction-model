@@ -1,0 +1,15 @@
+{
+  "n_total": 120,
+  "n_female": 62,
+  "n_male": 58,
+  "winner_female": "KMeans",
+  "winner_male": "Agglomerative",
+  "k_female": 4,
+  "k_male": 10,
+  "sil_female": 0.14515985166246473,
+  "sil_male": 0.15035601113031133,
+  "mean_top1_female": 0.743,
+  "mean_top1_male": 0.753,
+  "pct_exc_female": 12.9,
+  "pct_exc_male": 22.4
+}
