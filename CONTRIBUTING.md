@@ -72,8 +72,8 @@ git push origin your-name/what-youre-doing
 |---|---|---|
 | EDA (`01_eda.py`) | ✅ Complete | Ariba |
 | Preprocessing (`02_preprocessing.py`) | ✅ Complete | All three |
-| Model experiments (`03_model_experiments.py`) | 🔄 In progress | *(assign)* |
-| Tokenisation | 🔲 Planned | *(assign)* |
+| Model experiments (`03_model_experiments.py`) | 🔄 In progress | Ariba |
+| Tokenisation | 🔲 Planned | Ariba |
 | Evaluation & tuning | 🔲 Planned | *(assign)* |
 | Documentation | 🔄 Ongoing | Ariba |
 
