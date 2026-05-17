@@ -34,51 +34,78 @@ This project builds a data-driven solution: a machine learning pipeline trained 
 
 # 🗂️ Repository Structure
 
+# 🗂️ Repository Structure
+
 ```text
 Hostel-Roommate-Prediction-model/
 │
 ├── Main folder/
-│   ├── data/
-│   ├── models/
-│   ├── api.py
-│   ├── clustering.py
-│   ├── config.py
-│   ├── data_loader.py
-│   ├── lookup.py
-│   ├── matching.py
-│   ├── pipeline.py
-│   ├── preprocessing.py
-│   ├── scoring.py
-│   ├── index.html
-│   ├── requirements.txt
-│   └── help/
+│   │
+│   ├── data/                           # Behavioural survey datasets and cleaned inputs
+│   │
+│   ├── models/                         # Saved model artefacts, processed outputs, match results
+│   │
+│   ├── api.py                          # API/backend interface for serving roommate recommendations
+│   │
+│   ├── clustering.py                   # PCA dimensionality reduction and KMeans clustering logic
+│   │
+│   ├── config.py                       # Global constants, feature weights, compatibility settings
+│   │
+│   ├── data_loader.py                  # Dataset loading, validation, and cleaning utilities
+│   │
+│   ├── lookup.py                       # Lookup tables and categorical mapping helpers
+│   │
+│   ├── matching.py                     # Core roommate matching and ranking engine
+│   │
+│   ├── pipeline.py                     # Main orchestration pipeline connecting all modules
+│   │
+│   ├── preprocessing.py                # Encoding, scaling, preprocessing, and feature engineering
+│   │
+│   ├── scoring.py                      # Weighted compatibility scoring calculations
+│   │
+│   ├── index.html                      # Frontend/demo interface for displaying results
+│   │
+│   ├── requirements.txt                # Python dependencies required for the project
+│   │
+│   └── help/                           # Helper scripts, utilities, and experimental files
 │
-├── eda_figures/
-│   ├── sleep/wake analysis
-│   ├── food preference analysis
-│   ├── dealbreaker analysis
-│   ├── cross-tab visualizations
-│   ├── correlation heatmaps
-│   └── outlier detection plots
+├── eda_figures/                        # Generated EDA visualizations and statistical plots
+│   │
+│   ├── 3_sleep_wake.png                # Sleep/wake behavioural distribution analysis
+│   ├── 4_dealbreakers.png              # Dealbreaker preference analysis
+│   ├── 5_A_food_overall.png            # Overall food preference visualization
+│   ├── 6_A_full_crosstabs.png          # Cross-tab behavioural relationship plots
+│   ├── 7_correlation_heatmap.png       # Feature correlation heatmap
+│   └── 8_outlier_detection.png         # Outlier detection visualization
 │
-├── eda_plots/
-│   ├── cross_tab_figures/
-│   ├── generated EDA visualizations
-│   └── summary plots
+├── eda_plots/                          # Additional EDA outputs and grouped visualization folders
+│   │
+│   ├── cross_tab_figures/              # Detailed behavioural cross-tab comparison plots
+│   │
+│   ├── 01_sleep_wake.png               # Summary sleep behaviour plot
+│   ├── 02_dealbreakers.png             # Summary dealbreaker analysis
+│   ├── 03_food.png                     # Food preference summary visualization
+│   ├── 04_crosstabs.png                # Behavioural interaction summaries
+│   ├── 05_correlation.png              # Correlation analysis summary
+│   └── 06_outliers.png                 # Outlier summary visualization
 │
-├── Docs/
-│   ├── challenges.md
-│   ├── encoding_strategy.md
-│   └── survey_design.md
+├── Docs/                               # Project documentation and design rationale
+│   │
+│   ├── challenges.md                   # Challenges faced and engineering decisions
+│   ├── encoding_strategy.md            # Encoding methodology and preprocessing rationale
+│   └── survey_design.md                # Survey design principles and behavioural framing
 │
-├── eda.py
-├── CONTRIBUTING.md
-├── ROADMAP.md
-├── README.md
-└── .gitignore
+├── eda.py                              # Exploratory Data Analysis generation pipeline
+│
+├── CONTRIBUTING.md                     # Contribution guidelines for collaborators
+│
+├── ROADMAP.md                          # Planned features and future development goals
+│
+├── README.md                           # Main project documentation
+│
+└── .gitignore                          # Ignored files and folders for Git version control
 ```
 
----
 
 ## 📋 Survey Design
 
