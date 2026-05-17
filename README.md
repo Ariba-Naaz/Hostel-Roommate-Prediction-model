@@ -34,8 +34,6 @@ This project builds a data-driven solution: a machine learning pipeline trained 
 
 # 🗂️ Repository Structure
 
-# 🗂️ Repository Structure
-
 ```text
 Hostel-Roommate-Prediction-model/
 │
